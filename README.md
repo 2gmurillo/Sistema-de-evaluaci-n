@@ -57,7 +57,9 @@ Se listan 5 preguntas, cada una con 4 respuestas donde solo una es la correcta
 ```bash
 GET /api/v1/questions
 ```
-### Respuesta de ejemplo satisfactoria (200):
+```bash
+Respuesta de ejemplo solicitud satisfactoria (200):
+```
 ```bash
 {
     "status": 200,
@@ -179,7 +181,9 @@ POST /api/v1/test-result
 Parámetros | Estado | Valores aceptados | Descripción
 --- | --- | --- | ---
 answers | requerido | array numérico | Array con los id's correspondientes a las respuestas seleccionadas en el examen
-### Respuesta de ejemplo satisfactoria (200):
+```bash
+Respuesta de ejemplo solicitud satisfactoria (200):
+```
 ```bash
 {
     "status": 200,
@@ -191,7 +195,9 @@ answers | requerido | array numérico | Array con los id's correspondientes a la
     }
 }
 ```
-### Respuesta de ejemplo solicitud incorrecta (400):
+```bash
+Respuesta de ejemplo solicitud incorrecta (400):
+```
 ```bash
 {
     "status": 400,
