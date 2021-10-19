@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\TestResultController;
+use App\Http\Controllers\Api\V1\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->name('v1.')->group(function () {
+    Route::apiResource('questions', QuestionController::class)
+        ->only(['index']);
+    Route::post('test-result', [TestResultController::class, 'check'])->name('test-result.check');
 });
