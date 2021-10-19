@@ -1,64 +1,203 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## A CERCA DE ESTE PROYECTO
+El código fuente para este proyecto fue desarrollado en un sistema operativo GNU/Linux con el framework Laravel en su versión 8.x de PHP
+## Instalación
+### Herramientas utilizadas:
+Adicional a una terminal de línea de comandos, un editor de código y un navegador web, nuestro sistema operativo GNU/Linux debe contar con:
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- **[Apache2](https://httpd.apache.org/)**
+- **[MySQL](https://www.mysql.com/)**
+- **[PHP](https://www.php.net/)**
+- **[Laravel](https://laravel.com/docs/8.x)**
+- **[Composer](https://getcomposer.org/)**
 
-## About Laravel
+Nota: algunas dependencias de Laravel requieren de ciertas extensiones de PHP para funcionar. En caso de que requieras alguna, como por ejemplo BCMath PHP Extension, puedes ejecutar la siguiente sentencia en la terminal de línea de comandos para configurarla:
+```bash
+$ sudo apt-get install php-bcmath
+```
+### Paso a paso:
+Una vez hayas clonado el repositorio en una nueva carpeta, puedes proceder a ejecutar los siguientes pasos:  
+(recuerda que la carpeta donde vas a clonar el repositorio debe contar con los permisos respectivos en tu sistema operativo)
+- Instalación de dependencias:
+```bash
+$ composer install
+```
+- Generación del archivo .env para configuración de las variables de entorno:
+```bash
+$ cp .env.example .env
+```
+- Generación de la llave de la aplicación:
+```bash
+$ php artisan key:generate
+```
+- Configurar las credenciales para la conexión a la base de datos en las variables de entorno que se encuentran en el archivo .env generado anteriormente.
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=db_user
+DB_PASSWORD=db_pass
+```
+- Migraciones y alimentación de la base de datos:
+```bash
+$ php artisan migrate --seed
+```
+- Despliegue
+```bash
+$ php artisan serve
+```
+- Ahora puedes ver el despliegue en tu localhost y puerto por defecto. En mi caso se despliega en la url: http://127.0.0.1:8000/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## API Documentation
+**Listar preguntas con sus respuestas relacionadas**  
+Se listan 5 preguntas, cada una con 4 respuestas donde solo una es la correcta
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**HTTP Request**
+```bash
+GET /api/v1/questions
+```
+**Respuesta de ejemplo satisfactoria (200):**
+```bash
+{
+    "status": 200,
+    "data": [
+        {
+            "content": "Accusantium laudantium eligendi officia deleniti.",
+            "answers": [
+                {
+                    "id": 101,
+                    "content": "Repellat sunt minus sit soluta."
+                },
+                {
+                    "id": 102,
+                    "content": "Distinctio et dicta accusantium culpa aliquam facilis est temporibus."
+                },
+                {
+                    "id": 103,
+                    "content": "Eum et voluptatem pariatur sed nihil."
+                },
+                {
+                    "id": 104,
+                    "content": "Veniam ea quaerat voluptatem et corporis."
+                }
+            ]
+        },
+        {
+            "content": "Voluptatibus et consequatur cumque est.",
+            "answers": [
+                {
+                    "id": 129,
+                    "content": "Repellat sequi rerum vero omnis voluptas ut."
+                },
+                {
+                    "id": 130,
+                    "content": "Tempora adipisci molestiae eligendi odit."
+                },
+                {
+                    "id": 131,
+                    "content": "Voluptatem non eum at nihil."
+                },
+                {
+                    "id": 132,
+                    "content": "Et recusandae quia voluptatum iusto delectus accusantium fugiat."
+                }
+            ]
+        },
+        {
+            "content": "Et a reprehenderit possimus est.",
+            "answers": [
+                {
+                    "id": 133,
+                    "content": "Recusandae laboriosam consectetur omnis labore autem fugiat aliquid impedit."
+                },
+                {
+                    "id": 134,
+                    "content": "Quam tempore voluptatem tempore temporibus."
+                },
+                {
+                    "id": 135,
+                    "content": "Qui dignissimos praesentium ut ex sequi consectetur et."
+                },
+                {
+                    "id": 136,
+                    "content": "Et veritatis magni explicabo ipsam quasi sed et."
+                }
+            ]
+        },
+        {
+            "content": "Et eos necessitatibus laboriosam non.",
+            "answers": [
+                {
+                    "id": 69,
+                    "content": "Repellat quam ut totam non facere exercitationem soluta."
+                },
+                {
+                    "id": 70,
+                    "content": "Voluptates incidunt et vitae tenetur."
+                },
+                {
+                    "id": 71,
+                    "content": "Vitae ipsa inventore sit laboriosam consequuntur."
+                },
+                {
+                    "id": 72,
+                    "content": "Vitae et ea id beatae nihil modi."
+                }
+            ]
+        },
+        {
+            "content": "Quisquam dolorem consequuntur quisquam ut dolorem a vel.",
+            "answers": [
+                {
+                    "id": 73,
+                    "content": "Eveniet qui aut natus quasi impedit vel."
+                },
+                {
+                    "id": 74,
+                    "content": "Iure est autem fugit rerum est sit."
+                },
+                {
+                    "id": 75,
+                    "content": "Expedita deserunt dolorem voluptatem dolore."
+                },
+                {
+                    "id": 76,
+                    "content": "Omnis cum distinctio consequatur fugiat."
+                }
+            ]
+        }
+    ]
+}
+```
+---
+**Obtener el resultado de las respuestas seleccionadas**  
+**HTTP Request**
+```bash
+POST /api/v1/test-result
+```
+Parámetros | Estado | Valores aceptados | Descripción
+--- | --- | --- | ---
+answers | requerido | array numérico | Array con los id's correspondientes a las respuestas seleccionadas en el examen
+**Respuesta de ejemplo satisfactoria (200):**
+```bash
+{
+    "status": 200,
+    "data": {
+        "answers": {
+            "correct": 4,
+            "incorrect": 1
+        }
+    }
+}
+```
+**Respuesta de ejemplo solicitud incorrecta (400):**
+```bash
+{
+    "status": 400,
+    "data": {
+        "answers": [
+            "The answers field is required."
+        ]
+    }
+}
+```
