@@ -179,9 +179,9 @@ POST /api/v1/test-result
 Parámetros | Estado | Valores aceptados | Descripción
 --- | --- | --- | ---
 answers | requerido | array numérico | Array con los id's correspondientes a las respuestas seleccionadas en el examen
-```bash
+---
 **Respuesta de ejemplo solicitud satisfactoria (200):**
-
+```bash
 {
     "status": 200,
     "data": {
@@ -192,9 +192,8 @@ answers | requerido | array numérico | Array con los id's correspondientes a la
     }
 }
 ```
-```bash
 **Respuesta de ejemplo solicitud incorrecta (400):**
-
+```bash
 {
     "status": 400,
     "data": {
