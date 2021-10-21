@@ -14,7 +14,7 @@
                 </div>
                 <hr/>
                 <button type="submit" class="btn btn-primary">Enviar respuesta</button>
-                <a href="https://radiant-headland-70565.herokuapp.com/" class="btn btn-danger">Pedir otro examen</a>
+                <a href="http://radiant-headland-70565.herokuapp.com/" class="btn btn-danger">Pedir otro examen</a>
             </form>
         </div>
     </div>
