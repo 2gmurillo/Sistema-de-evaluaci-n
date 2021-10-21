@@ -1,5 +1,5 @@
 ## A CERCA DE ESTE PROYECTO
-El código fuente para este proyecto fue desarrollado en un sistema operativo GNU/Linux con el framework Laravel en su versión 8.x de PHP
+El código fuente para este proyecto fue desarrollado en un sistema operativo GNU/Linux con el framework Laravel en su versión 8.x y PHP 8.0.11
 - **[Aquí](https://radiant-headland-70565.herokuapp.com/) puedes ingresar a la url del proyecto**
 ## Instalación
 ### Herramientas utilizadas:
