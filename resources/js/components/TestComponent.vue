@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <form v-on:submit.prevent="addAnswer(currentAnswer)">
-                <span v-if="questionIndex < 5">
+                <span v-if="questionIndex < questions.length">
                     <div class="alert alert-secondary" role="alert">
-                        Seleccione la respuesta correcta para la siguiente pregunta ({{questionIndex + 1}}/5)
+                        Seleccione la respuesta correcta para la siguiente pregunta ({{questionIndex + 1}}/{{questions.length}})
                     </div>
                     <p class="text-start" v-text="currentQuestion.content"></p>
                     <div class="form-check" v-for="answer in currentQuestion.answers">
